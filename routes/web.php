@@ -1,6 +1,5 @@
 <?php
 
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,15 +10,17 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+//Reset Password
 Route::auth();
 Route::get('auth/confirm/{token}', 'Auth\AuthController@getConfirm');
-Route::get('auth/resend', 'Auth\AuthController@getResend');
-///////////////////////////////////////////////////////////////////////////
+Route::post('auth/resend', 'Auth\AuthController@getResend');
 
-
+//Middleware
 Route::get('/produtos', 'ProdutoController@listaProdutos')->middleware('auth');
 Route::group(['middleware' => ['web']], function () {
-    Route::get('/', function () { return view('welcome'); });    
+    Route::get('/', function () { return view('welcome'); });
+    Route::get('/', function () { return view('Home'); });    
 
     Route::group(['middleware' => ['auth']], function () { 
         
@@ -32,8 +33,4 @@ Route::group(['middleware' => ['web']], function () {
         });
 
     });
-
-    //Auth::routes();
 });
-
-
