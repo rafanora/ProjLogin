@@ -5,17 +5,10 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">LOGGED AREA - HOME</div>
+                <div class="card-header">HOME</div>
 
                 <div class="card-body">
-                    {{ Auth::user() }}
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    You are logged in!
+                    You are logged OUT!
                 </div>
             </div>
         </div>
