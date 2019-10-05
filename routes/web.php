@@ -19,8 +19,8 @@ Route::post('auth/resend', 'Auth\AuthController@getResend');
 //Middleware
 Route::get('/produtos', 'ProdutoController@listaProdutos')->middleware('auth');
 Route::group(['middleware' => ['web']], function () {
-    Route::get('/', function () { return view('welcome'); });
-    Route::get('/', function () { return view('Home'); });    
+    Route::get('/welcome', function () { return view('welcome'); });
+    Route::get('/', function () { return view('home'); });    
 
     Route::group(['middleware' => ['auth']], function () { 
         

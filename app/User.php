@@ -9,7 +9,6 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class User extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable;
-
     /**
      * The attributes that are mass assignable.
      *
@@ -36,4 +35,13 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function permissionType(){
+        if ($this->permission == 0) {
+            return 'admin';
+        }else if ($this->permission == 1) {
+            return 'user';
+        }
+    }
+
 }
